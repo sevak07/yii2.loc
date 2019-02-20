@@ -1,10 +1,27 @@
+<?php
+
+/* @var $this \yii\web\View */
+/* @var $content string */
+
+use app\widgets\Alert;
+use yii\helpers\Html;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
+use yii\widgets\Breadcrumbs;
+use app\assets\AppAsset;
+
+AppAsset::register($this);
+?>
+<?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?= Yii::$app->language ?>">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <?php $this->registerCsrfMetaTags() ?>
     <title>Home | E-Shopper</title>
     
     <!--[if lt IE 9]>
