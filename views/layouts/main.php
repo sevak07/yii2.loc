@@ -19,10 +19,9 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
     <?php $this->registerCsrfMetaTags() ?>
-    <title>Home | E-Shopper</title>
+    <title><?= Html::encode($this->title) ?></title>
+    <?php $this->head() ?>
     
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -36,6 +35,7 @@ AppAsset::register($this);
 </head><!--/head-->
 
 <body>
+<?php $this->beginBody() ?>
 	<header id="header"><!--header-->
 		<div class="header_top"><!--header_top-->
 			<div class="container">
@@ -1070,6 +1070,7 @@ AppAsset::register($this);
 	
 
   
-
+<?php $this->endBody() ?>
 </body>
 </html>
+<?php $this->endPage() ?>
