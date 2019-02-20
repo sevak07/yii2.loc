@@ -24,6 +24,13 @@ ltAppAsset::register($this);
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+
+    <?php 
+    // 	$this->registerJsFile('js/html5shiv.js', 
+    // ['position' => \yii\web\view::POS_HEAD, 'condition' => 'lte IE9' ]);
+    // 	$this->registerJsFile('js/respond.min.js', 
+    // ['position' => \yii\web\view::POS_HEAD, 'condition' => 'lte IE9' ]);
+    ?>
          
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
