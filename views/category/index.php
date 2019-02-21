@@ -134,6 +134,12 @@ $this->title = 'My Yii Application';
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                         </div>
                                     </div> -->
+                                    <?php if($hit->new) : ?>
+                                        <?= Html::img("@web/images/home/new.png", ['alt' => 'new', 'class' => 'new'])?>
+                                    <?php endif ?>
+                                    <?php if($hit->sale) : ?>
+                                        <?= Html::img("@web/images/home/sale.png", ['alt' => 'new', 'class' => 'new'])?>
+                                    <?php endif ?>
                             </div>
                             <div class="choose">
                                 <ul class="nav nav-pills nav-justified">
