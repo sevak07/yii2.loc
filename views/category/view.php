@@ -57,7 +57,7 @@ $this->title = 'My Yii Application';
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Features Items</h2>
 						<?php if(!empty($products)) : ?>
-							<?php foreach($products as $product) : ?>
+							<?php $i = 0; foreach($products as $product) : ?>
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
@@ -89,11 +89,16 @@ $this->title = 'My Yii Application';
 								</div>
 							</div>
 						</div>
+							<?php $i++ ?>
+							<?php if($i % 3 == 0) : ?>
+								<div class='clearfix'></div>
+							<?php endif ; ?>
 							<?php endforeach ; ?>
 						<?php else : ?>
 							<h2>There is no products yet</h2>
 						<?php endif; ?>
-						
+						<div class='clearfix'></div>
+
 						<ul class="pagination">
 							<li class="active"><a href="">1</a></li>
 							<li><a href="">2</a></li>
