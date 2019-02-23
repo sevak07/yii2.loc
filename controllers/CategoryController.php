@@ -18,6 +18,10 @@ class CategoryController extends AppController{
 	public function actionView(){
 		$id = Yii::$app->request->get('id');
 		$category = Category::findone($id);
+		
+		if (empty($category))
+			throw new \yii\web\HttpException(404, 'There is no such category.');
+
 		$this->setMeta(' E-SHOPPER | '. $category->name, $category->keywords, $category->description);
 		// $products = Product::find()->where(['category_id' => $id])->all();
 		$query = Product::find()->where(['category_id' => $id]);
