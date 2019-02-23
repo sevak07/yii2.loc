@@ -12,7 +12,7 @@ class ProductController extends AppController {
 		$id = Yii::$app->request->get('id');
 		$product = Product::findOne($id);
 
-		if (empty($category))
+		if (empty($product))
 			throw new \yii\web\HttpException(404, 'There is no such product.');
 
 		$this->setMeta(' E-SHOPPER | '. $product->name, $product->keywords, $product->description);
