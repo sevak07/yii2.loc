@@ -18,6 +18,6 @@ class CartController extends AppController {
 
 		$cart = new Cart();
 		$cart->addToCart($product);
-
+		return $this->render('cart-modal', compact('session'));
 	}
 }
