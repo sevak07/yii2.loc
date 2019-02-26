@@ -57,6 +57,7 @@ class CartController extends AppController {
 	}
 
 	public function actionView(){
+		debug(Yii::$app->params['adminEmail1']);
 		$session = Yii::$app->session;
 		$session->open();
 		$this->setMeta("Korzina");
