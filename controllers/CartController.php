@@ -62,7 +62,13 @@ class CartController extends AppController {
 		$this->setMeta("Korzina");
 		$order = new Order();
 		if( $order->load(Yii::$app->request->post()) ) {
-			debug(Yii::$app->request->post());
+			$order->qty = $session['cart.qty'];
+			$order->sum = $session['cart.sum'];
+			if($order->save()){
+				Yii::$app->session->setFlash('success', 'Your order was accepted');
+			} else {
+				Yii::$app->session->setFlash('error', 'Error in order');
+			}
 		}
 		return $this->render('view', compact('session', 'order'));
 	}
