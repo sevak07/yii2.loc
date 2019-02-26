@@ -327,8 +327,10 @@ ltAppAsset::register($this);
 \yii\bootstrap\Modal::begin([
 	'header' => '<h2>Korzina</h2>',
 	'id' => 'cart',
+	'size' => 'modal-lg',
 	'footer' => '<button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
-        <button type="button" class="btn btn-success">Оформить заказ</button>'
+        <button type="button" class="btn btn-success">Оформить заказ</button>
+        <button type="button" class="btn btn-danger" onclick="clearCart()">Clear Cart</button>'
 ]);
 
 
