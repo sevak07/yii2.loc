@@ -30,6 +30,21 @@
 		})
 	}
 
+	function getCart(){
+		$.ajax({
+			url: "/cart/show",
+			type: "GET",
+			success:function(res){
+				if(!res) alert("Error");
+				// console.log(res);
+				showCart(res);
+			},
+			error: function(){
+				alert("ERROR!!");
+			}
+		})
+	}
+
 	$("#cart .modal-body").on("click", ".del-item", function(){
 		var id = $(this).data('id');
 		$.ajax({
