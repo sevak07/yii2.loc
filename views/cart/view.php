@@ -14,6 +14,7 @@ use yii\widgets\ActiveForm;
 					<th>Name</th>
 					<th>Quantity</th>
 					<th>Price</th>
+					<th>Sum</th>
 					<th><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></th>
 				</tr>
 			</thead>
@@ -21,23 +22,32 @@ use yii\widgets\ActiveForm;
 				<?php foreach($session['cart'] as $id => $item) : ?>
 					<tr>
 						<td><?= yii\helpers\Html::img("@web/images/products/{$item['img']}", ['alt' => $item['name'], 'height' => 50])  ?></td>
-						<td><?= $item['name'] ?></td>
+						<td><a href="<?= Url::to(['product/view', 'id' => $id]) ?>"><?= $item['name'] ?></a></td>
 						<td><?= $item['qty'] ?></td>
 						<td><?= $item['price'] ?></td>
+						<td><?= $item['price'] * $item['qty'] ?></td>
 						<td><span data-id="<?= $id ?>" class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></td>
 					</tr>
 				<?php endforeach ; ?>
 					<tr>
-						<td colspan="4">ITOGO</td>
+						<td colspan="5">ITOGO</td>
 						<td><?= $session['cart.qty'] ?></td>
 					</tr>
 					<tr>
-						<td colspan="4">Summary</td>
+						<td colspan="5">Summary</td>
 						<td><?= $session['cart.sum'] ?></td>
 					</tr>
 			</tbody>
 		</table>
 	</div>
+	<hr/>
+	<?php $form = ActiveForm::begin() ?>
+		<?= $form->field($order, 'name') ?>
+		<?= $form->field($order, 'email') ?>
+		<?= $form->field($order, 'phone') ?>
+		<?= $form->field($order, 'address') ?>
+		<?= Html::submitButton('Zakazat', ['class' => 'btn btn-success']) ?>
+	<?php ActiveForm::end() ?>
 	<?php else : ?>
 		<h3>Cart is empty</h3>
 	<?php endif ; ?>
