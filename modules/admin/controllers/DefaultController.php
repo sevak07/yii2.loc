@@ -13,6 +13,9 @@ class DefaultController extends Controller
      * Renders the index view for the module
      * @return string
      */
+
+    public $layout = '@app/modules/admin/views/default/layouts/admin';
+
     public function actionIndex()
     {
         return $this->render('index');
